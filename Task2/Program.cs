@@ -1,61 +1,16 @@
-﻿int rowCount = 2;
-int columnCount = 2;
-int [,] arrayA = new int [rowCount, columnCount];
-int [,] arrayB = new int [rowCount, columnCount];
+﻿// Задача 2: Задайте прямоугольный двумерный массив. 
+// Напишите программу, которая будет находить строку с наименьшей суммой элементов.
 
-void FillArray (int [,] arr)
-{
-    for (int i = 0; i < arr.GetLength(0); i++)
-    {
-        for (int j = 0; j < arr.GetLength(1); j++)
-        {
-            arr[i,j] = new Random().Next(1, 10);
-        }
-    }
-}
+// Например, задан массив:
+// 1 4 7 2
+// 5 9 2 3
+// 8 4 2 4
+// 5 2 6 7
+// Программа считает сумму элементов в каждой строке и выдаёт номер строки с наименьшей суммой элементов: 1 строка
 
-void PrintArray( int[,] arr)
-{
-
-    for (int i = 0; i < arr.GetLength(0); i++)
-    {
-        for (int j = 0; j < arr.GetLength(1); j++)
-        {
-            Console.Write(arr[i, j] + " ");
-        }   
-    Console.WriteLine();
-    }
-}
-
-FillArray(arrayA);
-PrintArray(arrayA);
-Console.WriteLine();
-FillArray(arrayB);
-PrintArray(arrayB);
-Console.WriteLine();
-
-void FillArray1( int[,] arr, int[,] arr1)
-{
-    var arrayC = new int[arrayA.GetLength(0), arrayB.GetLength(1)];
-    for (int i = 0; i < arr.GetLength(0); i++)
-    {
-        for (int j = 0; j < arr.GetLength(1); j++)
-        {
-            for (int k = 0; k < arr1.GetLength(1); k++)
-            {
-                arrayC[i, j] += arrayA[i, k] * arrayB[k, j];
-
-            }
-        Console.Write(arrayC[i, j] + " ");
-        }
-        Console.WriteLine();
-    }
-}
-
-FillArray1(arrayA,arrayB);
-Console.Write("Введите число, ");
+Console.Write("Введите количество строк ");
 int a = Convert.ToInt32(Console.ReadLine());
-Console.Write("Введите число, ");
+Console.Write("Введите количество столбцов ");
 int b = Convert.ToInt32(Console.ReadLine());
 int sum = 0;
 int min = Int32.MaxValue;
@@ -109,7 +64,7 @@ void Print(int[,] array)
             count = i;
         }
     }
-    Console.WriteLine(count + 1);
+    Console.WriteLine(count + 1 + " строка");
 }
 PrintArray(arr);
 FillArray(arr);
